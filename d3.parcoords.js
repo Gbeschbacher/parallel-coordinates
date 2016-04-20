@@ -742,8 +742,6 @@ pc.createAxes = function() {
         "class": "label"
       })
       .text(dimensionLabels)
-      .on("dblclick", flipAxisAndUpdatePCP)
-      .on("wheel", rotateLabels);
 
   if (__.nullValueSeparator=="top") {
     pc.svg.append("line")
@@ -773,6 +771,7 @@ pc.createAxes = function() {
 
 pc.removeAxes = function() {
   g.remove();
+  g = undefined;
   return this;
 };
 
@@ -802,8 +801,6 @@ pc.updateAxes = function(animationTime) {
         "class": "label"
       })
       .text(dimensionLabels)
-      .on("dblclick", flipAxisAndUpdatePCP)
-      .on("wheel", rotateLabels);
 
   // Update
   g_data.attr("opacity", 0);
